@@ -1,4 +1,4 @@
-NAME = custom_ls
+NAME = tiny_shell
 CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror -g3
@@ -7,7 +7,7 @@ HEADER_DIR = include/
 SOURCES_DIR = sources/
 OBJECTS_DIR = objects/
 
-FILENAMES = main utils
+FILENAMES = main utils split get_path execute
 
 SOURCES = $(addsuffix .c, $(addprefix $(SOURCES_DIR), $(FILENAMES)))
 OBJECTS = $(addsuffix .o, $(addprefix $(OBJECTS_DIR), $(FILENAMES)))
