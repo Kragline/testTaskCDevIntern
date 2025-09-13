@@ -1,10 +1,15 @@
 #include "custom_ls.h"
 
-void	print_entity(const char *name, int tabulation)
+void	print_entity(const char *name, bool is_dir, int tabulation)
 {
 	for (int i = 0; i < tabulation; ++i)
 		printf("\t");
-	printf("%s\n", name);
+	if (is_dir)
+		printf(BLUE "%s/\n" WHITE, name);
+	else if (!access(name, X_OK))
+		printf(GREEN "%s\n" WHITE, name);
+	else
+		printf("%s\n", name);
 }
 
 bool	is_valid_entity(const char *path)
@@ -28,7 +33,7 @@ void	print_working_dir()
 	char	buffer[PATH_MAX];
 
 	if (getcwd(buffer, sizeof(buffer)))
-		printf("%s\n", buffer);
+		printf(YELLOW "%s\n" WHITE, buffer);
 	else
 		perror("getcwd");
 }
