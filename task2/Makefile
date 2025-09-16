@@ -14,7 +14,7 @@ OBJECTS = $(addsuffix .o, $(addprefix $(OBJECTS_DIR), $(FILENAMES)))
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS) Makefile
+$(NAME): $(LIBFT) $(OBJECTS) Makefile
 	$(CC) $(CCFLAGS) -I$(HEADER_DIR) $(OBJECTS) -o $(NAME)
 
 $(OBJECTS_DIR)%.o: $(SOURCES_DIR)%.c
